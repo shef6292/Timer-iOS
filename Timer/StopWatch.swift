@@ -16,6 +16,9 @@ class StopWatch {
     // Variables.
     var timer = Timer()
     var counter = 0.0
+    var years = 0
+    var weeks = 0
+    var days = 0
     var hours = 0
     var minutes = 0
     var seconds = 0
@@ -36,6 +39,9 @@ class StopWatch {
     func stop() {
         timer.invalidate()
         counter = 0.0
+        years = 0
+        weeks = 0
+        days = 0
         hours = 0
         minutes = 0
         seconds = 0
@@ -44,11 +50,18 @@ class StopWatch {
     // Return the elapsed time from when the timer began in a String format.
     func getElapsedTime() -> String {
         
-        hours = Int(self.counter / 3600)
+        years =
+        weeks = Int(self.counter)
+        days = Int(self.counter.trun / 86400)
+        hours = Int(self.counter.truncatingRemainder(dividingBy: 86400) / 3600)
         minutes = Int(self.counter.truncatingRemainder(dividingBy: 3600) / 60)
         seconds = Int(self.counter.truncatingRemainder(dividingBy: 60))
         
-        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        if days > 0 {
+            return String(format: "%02d.%02d:%02d:%02d", days, hours, minutes, seconds)
+        } else {
+            return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        }
     }
     
 }

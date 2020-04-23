@@ -30,9 +30,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAr-qA-Fmm">
-                                <rect key="frame" x="136.5" y="274" width="141" height="48"/>
+                                <rect key="frame" x="127.5" y="274" width="159" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Stop Timer">
+                                <state key="normal" title="Pause Timer">
                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -43,13 +43,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="cVM-h0-F8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4HC-EZ-mjr"/>
-                            <constraint firstItem="cVM-h0-F8q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="135.5" id="CBV-c1-8pZ"/>
                             <constraint firstItem="AAr-qA-Fmm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dlw-Vj-A4I"/>
                             <constraint firstItem="aU1-Th-pBt" firstAttribute="top" secondItem="AAr-qA-Fmm" secondAttribute="bottom" constant="90" id="FGC-l7-xFS"/>
                             <constraint firstItem="aU1-Th-pBt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IaC-BM-27I"/>
                             <constraint firstItem="cVM-h0-F8q" firstAttribute="top" secondItem="aU1-Th-pBt" secondAttribute="bottom" constant="90" id="SOU-fO-TSh"/>
                             <constraint firstItem="aU1-Th-pBt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bIq-Oc-dwu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cVM-h0-F8q" secondAttribute="trailing" constant="135.5" id="xGk-RV-WWu"/>
+                            <constraint firstItem="cVM-h0-F8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p8R-Vj-A6G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -61,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-57" y="113"/>
+            <point key="canvasLocation" x="-57.971014492753625" y="112.5"/>
         </scene>
     </scenes>
 </document>

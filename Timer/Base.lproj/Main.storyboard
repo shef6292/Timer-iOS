@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aU1-Th-pBt">
+                                <rect key="frame" x="81.5" y="412" width="251" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVM-h0-F8q">
+                                <rect key="frame" x="135.5" y="574" width="143" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Start Timer"/>
+                                <connections>
+                                    <action selector="startTimerButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pjx-yu-f0r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAr-qA-Fmm">
+                                <rect key="frame" x="136.5" y="274" width="141" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Stop Timer">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopTimerButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhL-0R-GrO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cVM-h0-F8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4HC-EZ-mjr"/>
+                            <constraint firstItem="cVM-h0-F8q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="135.5" id="CBV-c1-8pZ"/>
+                            <constraint firstItem="AAr-qA-Fmm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dlw-Vj-A4I"/>
+                            <constraint firstItem="aU1-Th-pBt" firstAttribute="top" secondItem="AAr-qA-Fmm" secondAttribute="bottom" constant="90" id="FGC-l7-xFS"/>
+                            <constraint firstItem="aU1-Th-pBt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IaC-BM-27I"/>
+                            <constraint firstItem="cVM-h0-F8q" firstAttribute="top" secondItem="aU1-Th-pBt" secondAttribute="bottom" constant="90" id="SOU-fO-TSh"/>
+                            <constraint firstItem="aU1-Th-pBt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bIq-Oc-dwu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cVM-h0-F8q" secondAttribute="trailing" constant="135.5" id="xGk-RV-WWu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="startTimerButton" destination="cVM-h0-F8q" id="dtU-0v-LaA"/>
+                        <outlet property="stopTimerButton" destination="AAr-qA-Fmm" id="Mxj-3P-MEO"/>
+                        <outlet property="timeLabel" destination="aU1-Th-pBt" id="fCd-HM-icT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57" y="113"/>
+        </scene>
+    </scenes>
+</document>

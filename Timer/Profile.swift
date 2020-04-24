@@ -17,14 +17,23 @@ class Profile {
     // The profile picture of the profile.
     var image: UIImage?
     
-    // The total accumulated time for this profile.
+    // The elapsed time for this session.
     var time = 0
+    
+    // The total accumulated time for this profile.
+    var totalAccumulatedTime = 0
+    
+    // The date this app was last opened.
+    var dateLastOpened = 0
+    
+    // State that determines if the user left the timer running.
+    var resumeTimer: Bool
     
     // Initializer.
     init() {
         name = nil
         image = nil
-        time = 0
+        resumeTimer = false
     }
     
 }

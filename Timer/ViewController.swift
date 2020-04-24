@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     // Constants.
     let stopWatch = StopWatch()
     let incrementBy = 1.0
-    let profile = Profile()
+    let profileMO = ProfileMO()
+    var profile: Profile!
     
     // Variables.
     var timer = Timer()
@@ -30,6 +31,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profile = profileMO.profile
+        
         // Do any additional setup after loading the view.
         stopTimerButton.isEnabled = false
         stopTimerButton.isHidden = true
@@ -79,10 +83,26 @@ class ViewController: UIViewController {
         
         stopWatch.start()
         
+        
+        // Calculate the difference in time from the date last opened up to now.
+        if profile.resumeTimer == true {
+            
+            profile.time = Int(Int(stopWatch.startTime) - profile.dateLastOpened)
+            profile.totalAccumulatedTime += profile.time
+            profile.dateLastOpened = Int(stopWatch.startTime)
+            
+            stopWatch.elapsedTime += profile.time
+            stopWatch.counter = Double(stopWatch.elapsedTime)
+        }
+        
         // Update the label every second.
         timer = Timer.scheduledTimer(withTimeInterval: incrementBy, repeats: true, block: {_ in
             
             self.timeLabel.text = self.stopWatch.getElapsedTime()
+            
+            if self.profile.name != nil {
+                self.profileMO.save()
+            }
             
         })
         
@@ -103,6 +123,12 @@ class ViewController: UIViewController {
         startTimerButton.isEnabled = false
         startTimerButton.isHidden = true
         
+        
+        profile.dateLastOpened = Int(stopWatch.startTime)
+        profile.resumeTimer = true
+        
+        profileMO.save()
+        
     }
     
     // Stop the timer.
@@ -112,11 +138,11 @@ class ViewController: UIViewController {
         // then reset the timer.
         if stopTimerButton.currentTitle == "Reset Timer" {
             
+            profile.totalAccumulatedTime += stopWatch.elapsedTime
+            profileMO.save()
+            
             // Reset the timer and update the time label.
             timeLabel.text = stopWatch.reset()
-            
-            // Reset the accumulated time for this profile.
-            //profile.time = 0
             
             // Change the text back to "Pause Timer".
             stopTimerButton.setTitle("Pause Timer", for: UIControl.State.normal)
@@ -135,6 +161,12 @@ class ViewController: UIViewController {
             // Stop both timers.
             profile.time = stopWatch.stop()
             timer.invalidate()
+            
+            
+            profile.dateLastOpened = Int(stopWatch.stopTime)
+            profile.resumeTimer = false
+            
+            profileMO.save()
             
             // Change the current title of the stopTimerButton
             // to allow the resetting of the timer.
@@ -160,6 +192,7 @@ class ViewController: UIViewController {
         if segue.identifier == "Create_Profile" {
             let createProfileVC = segue.destination as! CreateProfileViewController
             createProfileVC.profile = self.profile
+            createProfileVC.profileMO = self.profileMO
         }
     }
     

@@ -123,6 +123,16 @@
                                     <outletCollection property="gestureRecognizers" destination="1PS-HK-Fi1" appends="YES" id="4pL-Mb-q4u"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdi-Pf-4KS">
+                                <rect key="frame" x="131" y="630" width="152" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Load Profile"/>
+                                <connections>
+                                    <action selector="createProfileButtonAction:" destination="Zmk-Sf-d6U" eventType="touchUpInside" id="HiC-LB-nme"/>
+                                    <action selector="loadProfileButtonAction:" destination="Zmk-Sf-d6U" eventType="touchUpInside" id="W87-KW-gJU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>

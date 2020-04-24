@@ -18,6 +18,8 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     var profile = Profile()
     
+    var profileMO = ProfileMO()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -81,5 +83,12 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate, UIImag
         
     }
     
-
+    @IBAction func loadProfileButtonAction(_ sender: UIButton) {
+        
+        profileMO.load(name: "Dillon")
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
 }

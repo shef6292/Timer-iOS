@@ -22,6 +22,7 @@ class StopWatch {
     var seconds = 0
     
     var startTime: CFAbsoluteTime!
+    var stopTime: CFAbsoluteTime!
     var elapsedTime = 0
     
     
@@ -43,9 +44,11 @@ class StopWatch {
     // Pause the timer.
     func stop() -> Int {
         
+        stopTime = CFAbsoluteTimeGetCurrent()
+        
         timer.invalidate()
         
-        elapsedTime += Int(CFAbsoluteTimeGetCurrent() - startTime)
+        elapsedTime += Int(stopTime - startTime)
         
         return elapsedTime
     }

@@ -13,11 +13,14 @@ class ViewController: UIViewController {
     // Constants.
     let stopWatch = StopWatch()
     let incrementBy = 1.0
+    let profile = Profile()
     
     // Variables.
     var timer = Timer()
     
     // References to storyboard.
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var startTimerButton: UIButton!
     @IBOutlet weak var stopTimerButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
@@ -30,10 +33,49 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         stopTimerButton.isEnabled = false
         stopTimerButton.isHidden = true
+        
+        nameLabel.isHidden = true
+        nameLabel.isEnabled = false
+        profilePictureImageView.isHidden = true
+        profilePictureImageView.isUserInteractionEnabled = false
+        
+        // In the case that a profile does not exist for the
+        // current user, show the ViewController for them to
+        // create a new profile.
+        if profile.name == nil {
+            
+            // Show the create profile view controller.
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "Create_Profile", sender: self)
+            }
+            
+            
+        } else {
+            nameLabel.text = profile.name
+            profilePictureImageView.image = profile.image
+            
+            // maybe animate?
+            nameLabel.isHidden = false
+            nameLabel.isEnabled = true
+            profilePictureImageView.isHidden = false
+            profilePictureImageView.isUserInteractionEnabled = true
+        }
+        
     }
     
     // Start the timer.
     @IBAction func startTimerButtonAction(_ sender: UIButton) {
+        
+        if profile.name != nil {
+            nameLabel.text = profile.name
+            profilePictureImageView.image = profile.image
+            
+            // maybe animate?
+            nameLabel.isHidden = false
+            nameLabel.isEnabled = true
+            profilePictureImageView.isHidden = false
+            profilePictureImageView.isUserInteractionEnabled = true
+        }
         
         stopWatch.start()
         
@@ -103,6 +145,19 @@ class ViewController: UIViewController {
         // Enable and reveal the Start Timer Button.
         startTimerButton.isEnabled = true
         startTimerButton.isHidden = false
+    }
+    
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "Create_Profile" {
+            let createProfileVC = segue.destination as! CreateProfileViewController
+            createProfileVC.profile = self.profile
+        }
     }
     
 }

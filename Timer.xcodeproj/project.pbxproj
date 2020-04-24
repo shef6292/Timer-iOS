@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		512DF0D624524DC400681402 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DF0D524524DC400681402 /* CreateProfileViewController.swift */; };
 		5130D7992452366D00D2EC16 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130D7982452366D00D2EC16 /* Profile.swift */; };
 		5160D832245007FB00D092DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160D831245007FB00D092DA /* AppDelegate.swift */; };
 		5160D834245007FB00D092DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160D833245007FB00D092DA /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		512DF0D524524DC400681402 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		5130D7982452366D00D2EC16 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		5160D82E245007FB00D092DA /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5160D831245007FB00D092DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				5160D831245007FB00D092DA /* AppDelegate.swift */,
 				5160D833245007FB00D092DA /* SceneDelegate.swift */,
 				5160D835245007FB00D092DA /* ViewController.swift */,
+				512DF0D524524DC400681402 /* CreateProfileViewController.swift */,
 				5160D837245007FB00D092DA /* Main.storyboard */,
 				5160D8482450093800D092DA /* StopWatch.swift */,
 				5160D83D245007FD00D092DA /* Assets.xcassets */,
@@ -153,6 +156,7 @@
 				5160D8492450093800D092DA /* StopWatch.swift in Sources */,
 				5160D834245007FB00D092DA /* SceneDelegate.swift in Sources */,
 				5160D83C245007FB00D092DA /* Timer.xcdatamodeld in Sources */,
+				512DF0D624524DC400681402 /* CreateProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

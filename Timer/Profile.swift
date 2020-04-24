@@ -7,3 +7,24 @@
 //
 
 import Foundation
+import UIKit
+
+class Profile {
+    
+    // The name of the profile.
+    var name: String?
+    
+    // The profile picture of the profile.
+    var image: UIImage?
+    
+    // The total accumulated time for this profile.
+    var time: TimeInterval?
+    
+    // Initializer.
+    init() {
+        name = nil
+        time = nil
+        image = nil
+    }
+    
+}

@@ -39,28 +39,123 @@
                                     <action selector="stopTimerButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhL-0R-GrO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJF-pE-PgA">
+                                <rect key="frame" x="218" y="94" width="102" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ELC-3z-BtC">
+                                <rect key="frame" x="330" y="85.5" width="64" height="65"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="ot1-Gu-Phw"/>
+                                    <constraint firstAttribute="height" constant="66" id="tOf-pp-ytp"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="cVM-h0-F8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4HC-EZ-mjr"/>
-                            <constraint firstItem="AAr-qA-Fmm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dlw-Vj-A4I"/>
-                            <constraint firstItem="aU1-Th-pBt" firstAttribute="top" secondItem="AAr-qA-Fmm" secondAttribute="bottom" constant="90" id="FGC-l7-xFS"/>
-                            <constraint firstItem="aU1-Th-pBt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IaC-BM-27I"/>
-                            <constraint firstItem="cVM-h0-F8q" firstAttribute="top" secondItem="aU1-Th-pBt" secondAttribute="bottom" constant="90" id="SOU-fO-TSh"/>
-                            <constraint firstItem="aU1-Th-pBt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bIq-Oc-dwu"/>
-                            <constraint firstItem="cVM-h0-F8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p8R-Vj-A6G"/>
+                            <constraint firstItem="ELC-3z-BtC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="41" id="26o-i3-Oa8"/>
+                            <constraint firstItem="ELC-3z-BtC" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3fS-ze-z5M"/>
+                            <constraint firstItem="cVM-h0-F8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RAY-I8-i2x"/>
+                            <constraint firstItem="cVM-h0-F8q" firstAttribute="top" secondItem="aU1-Th-pBt" secondAttribute="bottom" constant="90" id="RRZ-TA-WZc"/>
+                            <constraint firstItem="aU1-Th-pBt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SIE-wm-vea"/>
+                            <constraint firstItem="aU1-Th-pBt" firstAttribute="top" secondItem="AAr-qA-Fmm" secondAttribute="bottom" constant="90" id="VtJ-gU-qbW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AJF-pE-PgA" secondAttribute="trailing" constant="74" id="Y3v-n0-Bu5"/>
+                            <constraint firstItem="AJF-pE-PgA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="50" id="gUP-FI-6B2"/>
+                            <constraint firstItem="aU1-Th-pBt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gdF-P0-cT7"/>
+                            <constraint firstItem="AAr-qA-Fmm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="osG-1I-HgQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="AJF-pE-PgA" id="bo6-KX-M52"/>
+                        <outlet property="profilePictureImageView" destination="ELC-3z-BtC" id="43e-2J-okL"/>
                         <outlet property="startTimerButton" destination="cVM-h0-F8q" id="dtU-0v-LaA"/>
                         <outlet property="stopTimerButton" destination="AAr-qA-Fmm" id="Mxj-3P-MEO"/>
                         <outlet property="timeLabel" destination="aU1-Th-pBt" id="fCd-HM-icT"/>
+                        <segue destination="Zmk-Sf-d6U" kind="show" identifier="Create_Profile" id="Qd0-e7-4m7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-57.971014492753625" y="112.5"/>
         </scene>
+        <!--Create Profile View Controller-->
+        <scene sceneID="9vh-sL-cyd">
+            <objects>
+                <viewController id="Zmk-Sf-d6U" customClass="CreateProfileViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Pu-TM-LLk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzb-Sv-5OH">
+                                <rect key="frame" x="120" y="452" width="174" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="174" id="CKP-gd-qgM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jr-h2-g22">
+                                <rect key="frame" x="153.5" y="92" width="107.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frA-f6-WHg">
+                                <rect key="frame" x="120" y="574" width="174" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Create Profile"/>
+                                <connections>
+                                    <action selector="createProfileButtonAction:" destination="Zmk-Sf-d6U" eventType="touchUpInside" id="Qx2-Wd-rrB"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IaW-eD-Zai">
+                                <rect key="frame" x="79" y="174.5" width="256" height="255"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="KFS-lF-Yoq"/>
+                                    <constraint firstAttribute="height" constant="256" id="Lae-gC-ue8"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="1PS-HK-Fi1" appends="YES" id="4pL-Mb-q4u"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="4jr-h2-g22" firstAttribute="top" secondItem="Py1-AY-40B" secondAttribute="top" constant="92" id="50B-HG-LWK"/>
+                            <constraint firstItem="lzb-Sv-5OH" firstAttribute="top" secondItem="IaW-eD-Zai" secondAttribute="bottom" constant="22" id="54u-Cy-VEy"/>
+                            <constraint firstItem="frA-f6-WHg" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="6fp-eK-Cjh"/>
+                            <constraint firstItem="IaW-eD-Zai" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="a5m-uh-1Fx"/>
+                            <constraint firstItem="frA-f6-WHg" firstAttribute="top" secondItem="lzb-Sv-5OH" secondAttribute="bottom" constant="88" id="aWs-K2-B6e"/>
+                            <constraint firstItem="lzb-Sv-5OH" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="hjt-da-JhT"/>
+                            <constraint firstItem="4jr-h2-g22" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="irh-2x-Cnt"/>
+                            <constraint firstItem="IaW-eD-Zai" firstAttribute="top" secondItem="4jr-h2-g22" secondAttribute="bottom" constant="34" id="jAC-8t-1Nu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Py1-AY-40B"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DcA-Mm-1pP"/>
+                    <connections>
+                        <outlet property="createProfileButton" destination="frA-f6-WHg" id="3hJ-kl-bD0"/>
+                        <outlet property="nameTextField" destination="lzb-Sv-5OH" id="sfy-cn-u64"/>
+                        <outlet property="profilePictureImageView" destination="IaW-eD-Zai" id="9WA-8T-vUf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FVQ-aa-Yk0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1PS-HK-Fi1">
+                    <connections>
+                        <action selector="profilePictureImageViewTapHandlerWithPropicImageView:" destination="Zmk-Sf-d6U" id="92w-fh-807"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-59.420289855072468" y="875.89285714285711"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

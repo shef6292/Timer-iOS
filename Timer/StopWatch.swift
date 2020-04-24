@@ -21,11 +21,18 @@ class StopWatch {
     var minutes = 0
     var seconds = 0
     
+    var startTime: CFAbsoluteTime!
+    var elapsedTime = 0
+    
+    
     
     //------------- Functions -------------//
     
     // Start the timer.
     func start() {
+        
+        startTime = CFAbsoluteTimeGetCurrent()
+        
         timer = Timer.scheduledTimer(withTimeInterval: incrementBy, repeats: true, block: {_ in
             
             self.counter += self.incrementBy
@@ -34,8 +41,13 @@ class StopWatch {
     }
     
     // Pause the timer.
-    func stop() {
+    func stop() -> Int {
+        
         timer.invalidate()
+        
+        elapsedTime += Int(CFAbsoluteTimeGetCurrent() - startTime)
+        
+        return elapsedTime
     }
     
     // Reset the timer.
@@ -45,6 +57,8 @@ class StopWatch {
         hours = 0
         minutes = 0
         seconds = 0
+        
+        elapsedTime = 0
         
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }

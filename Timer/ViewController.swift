@@ -115,6 +115,9 @@ class ViewController: UIViewController {
             // Reset the timer and update the time label.
             timeLabel.text = stopWatch.reset()
             
+            // Reset the accumulated time for this profile.
+            //profile.time = 0
+            
             // Change the text back to "Pause Timer".
             stopTimerButton.setTitle("Pause Timer", for: UIControl.State.normal)
             
@@ -130,7 +133,7 @@ class ViewController: UIViewController {
         } else {
             
             // Stop both timers.
-            stopWatch.stop()
+            profile.time = stopWatch.stop()
             timer.invalidate()
             
             // Change the current title of the stopTimerButton

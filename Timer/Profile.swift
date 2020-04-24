@@ -18,13 +18,13 @@ class Profile {
     var image: UIImage?
     
     // The total accumulated time for this profile.
-    var time: TimeInterval?
+    var time = 0
     
     // Initializer.
     init() {
         name = nil
-        time = nil
         image = nil
+        time = 0
     }
     
 }

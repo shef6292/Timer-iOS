@@ -75,7 +75,7 @@
                         <outlet property="startTimerButton" destination="cVM-h0-F8q" id="dtU-0v-LaA"/>
                         <outlet property="stopTimerButton" destination="AAr-qA-Fmm" id="Mxj-3P-MEO"/>
                         <outlet property="timeLabel" destination="aU1-Th-pBt" id="fCd-HM-icT"/>
-                        <segue destination="Zmk-Sf-d6U" kind="show" identifier="Create_Profile" id="Qd0-e7-4m7"/>
+                        <segue destination="Zmk-Sf-d6U" kind="presentation" identifier="Create_Profile" id="Qd0-e7-4m7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,14 +123,22 @@
                                     <outletCollection property="gestureRecognizers" destination="1PS-HK-Fi1" appends="YES" id="4pL-Mb-q4u"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdi-Pf-4KS">
-                                <rect key="frame" x="131" y="630" width="152" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdi-Pf-4KS">
+                                <rect key="frame" x="131" y="632" width="152" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Load Profile"/>
                                 <connections>
-                                    <action selector="createProfileButtonAction:" destination="Zmk-Sf-d6U" eventType="touchUpInside" id="HiC-LB-nme"/>
                                     <action selector="loadProfileButtonAction:" destination="Zmk-Sf-d6U" eventType="touchUpInside" id="W87-KW-gJU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Juu-Wb-FMM">
+                                <rect key="frame" x="149" y="700" width="116" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Delete Profile">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteProfileButtonAction:" destination="Zmk-Sf-d6U" eventType="touchUpInside" id="hTm-g5-pMq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -142,9 +150,13 @@
                             <constraint firstItem="frA-f6-WHg" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="6fp-eK-Cjh"/>
                             <constraint firstItem="IaW-eD-Zai" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="a5m-uh-1Fx"/>
                             <constraint firstItem="frA-f6-WHg" firstAttribute="top" secondItem="lzb-Sv-5OH" secondAttribute="bottom" constant="88" id="aWs-K2-B6e"/>
+                            <constraint firstItem="Juu-Wb-FMM" firstAttribute="top" secondItem="tdi-Pf-4KS" secondAttribute="bottom" constant="20" id="eGW-6M-GaP"/>
+                            <constraint firstItem="tdi-Pf-4KS" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="fzJ-TO-MWH"/>
                             <constraint firstItem="lzb-Sv-5OH" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="hjt-da-JhT"/>
                             <constraint firstItem="4jr-h2-g22" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="irh-2x-Cnt"/>
                             <constraint firstItem="IaW-eD-Zai" firstAttribute="top" secondItem="4jr-h2-g22" secondAttribute="bottom" constant="34" id="jAC-8t-1Nu"/>
+                            <constraint firstItem="Juu-Wb-FMM" firstAttribute="centerX" secondItem="6Pu-TM-LLk" secondAttribute="centerX" id="red-Wz-etd"/>
+                            <constraint firstItem="tdi-Pf-4KS" firstAttribute="top" secondItem="frA-f6-WHg" secondAttribute="bottom" constant="10" id="uml-x2-vKJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Py1-AY-40B"/>
                     </view>

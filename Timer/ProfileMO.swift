@@ -17,16 +17,7 @@ class ProfileMO {
     var profiles: [NSManagedObject] = []
     
     var profile = Profile()
-    /*
-    // The name of the profile.
-    var name: String?
-    
-    // The profile picture of the profile.
-    var image: UIImage?
-    
-    // The total accumulated time for this profile.
-    var time = 0
-    */
+
     var appDelegate: AppDelegate!
     
     var managedContext: NSManagedObjectContext!
@@ -35,8 +26,6 @@ class ProfileMO {
     
     // Initializer.
     init() {
-        
-        
         
         guard let appDelegate =
           UIApplication.shared.delegate as? AppDelegate else {
@@ -57,14 +46,14 @@ class ProfileMO {
         
     }
     
-    func save() {
+    func saveProfile() {
         
       // 1
         profile_managed!.setValue(profile.name, forKeyPath: "name")
         profile_managed!.setValue(profile.image?.pngData(), forKeyPath: "image")
         profile_managed!.setValue(profile.time, forKeyPath: "time")
         profile_managed!.setValue(profile.totalAccumulatedTime, forKeyPath: "totalAccumulatedTime")
-        profile_managed!.setValue(profile.totalAccumulatedTime, forKeyPath: "dateLastOpened")
+        profile_managed!.setValue(profile.dateLastOpened, forKeyPath: "dateLastOpened")
         profile_managed!.setValue(profile.resumeTimer, forKeyPath: "resumeTimer")
       
       // 2
@@ -79,21 +68,18 @@ class ProfileMO {
     }
     
     
-    
-    
-    func load(name: String) {
-        //2
+    func loadProfile(name: String) {
+     
         let fetchRequest =
           NSFetchRequest<NSManagedObject>(entityName: "Profile")
         
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-        
-        //3
+    
         do {
             
             profiles = try managedContext.fetch(fetchRequest)
             
-            if let profile_managed = profiles.first {
+            if profiles.count > 0, let profile_managed = profiles.first {
                 
                 profile.name = profile_managed.value(forKeyPath: "name") as? String
                 profile.image = UIImage(data: (profile_managed.value(forKeyPath: "image")) as! Data, scale: 1)
@@ -102,11 +88,35 @@ class ProfileMO {
                 profile.dateLastOpened = profile_managed.value(forKeyPath: "dateLastOpened") as! Int
                 profile.resumeTimer = profile_managed.value(forKeyPath: "resumeTimer") as! Bool
             
+            } else {
+                
             }
             
         } catch let error as NSError {
           print("Could not fetch. \(error), \(error.userInfo)")
         }
+    }
+    
+    
+    func deleteProfile(name: String) {
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Profile")
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+        
+        do {
+            
+            profiles = try managedContext.fetch(fetchRequest)
+            
+            for profile in profiles {
+                managedContext.delete(profile)
+            }
+            
+            try managedContext.save()
+            
+        } catch let error as NSError {
+          print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
     }
     
 }

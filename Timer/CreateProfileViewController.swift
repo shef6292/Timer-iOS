@@ -85,10 +85,15 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate, UIImag
     
     @IBAction func loadProfileButtonAction(_ sender: UIButton) {
         
-        profileMO.load(name: "Dillon")
+        profileMO.loadProfile(name: nameTextField.text!)
         
         self.dismiss(animated: true, completion: nil)
         
     }
     
+    @IBAction func deleteProfileButtonAction(_ sender: UIButton) {
+        
+        profileMO.deleteProfile(name: nameTextField.text!)
+        
+    }
 }

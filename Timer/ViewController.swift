@@ -87,6 +87,10 @@ class ViewController: UIViewController {
         // Calculate the difference in time from the date last opened up to now.
         if profile.resumeTimer == true {
             
+            if profile.dateLastOpened == 0 {
+                profile.dateLastOpened = Int(stopWatch.startTime)
+            }
+            
             profile.time = Int(Int(stopWatch.startTime) - profile.dateLastOpened)
             profile.totalAccumulatedTime += profile.time
             profile.dateLastOpened = Int(stopWatch.startTime)
@@ -101,7 +105,7 @@ class ViewController: UIViewController {
             self.timeLabel.text = self.stopWatch.getElapsedTime()
             
             if self.profile.name != nil {
-                self.profileMO.save()
+                self.profileMO.saveProfile()
             }
             
         })
@@ -127,7 +131,7 @@ class ViewController: UIViewController {
         profile.dateLastOpened = Int(stopWatch.startTime)
         profile.resumeTimer = true
         
-        profileMO.save()
+        profileMO.saveProfile()
         
     }
     
@@ -139,7 +143,10 @@ class ViewController: UIViewController {
         if stopTimerButton.currentTitle == "Reset Timer" {
             
             profile.totalAccumulatedTime += stopWatch.elapsedTime
-            profileMO.save()
+            profile.resumeTimer = false
+            profile.time = 0
+            profile.dateLastOpened = 1
+            profileMO.saveProfile()
             
             // Reset the timer and update the time label.
             timeLabel.text = stopWatch.reset()
@@ -160,13 +167,14 @@ class ViewController: UIViewController {
             
             // Stop both timers.
             profile.time = stopWatch.stop()
+            profile.dateLastOpened = 0
             timer.invalidate()
             
             
             profile.dateLastOpened = Int(stopWatch.stopTime)
             profile.resumeTimer = false
             
-            profileMO.save()
+            profileMO.saveProfile()
             
             // Change the current title of the stopTimerButton
             // to allow the resetting of the timer.
